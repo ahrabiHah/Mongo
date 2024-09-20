@@ -1,10 +1,14 @@
 package de.mvc.webapp.controller;
 
+import de.mvc.webapp.model.Vehicle;
 import de.mvc.webapp.service.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.batch.BatchTransactionManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,5 +55,19 @@ public class TeluskoController {
         model.addAttribute("res",res);
     }
 
+    @GetMapping("/register")
+    public String showRegisterForm(Model model){
+        // Add a new 'vehicle' object to the model for the form to bind to
+        model.addAttribute("vehicle", new Vehicle());
+        return "register"; // The JSP or HTML file where the form is located
+    }
+    @PostMapping("/register")
+    public String register(Model model, @ModelAttribute("vehicle")Vehicle vehicle){
+        //public String register(Model model, Vehicle vehicle){
+
+        System.out.println(vehicle);
+        model.addAttribute("vehicle",vehicle);
+        return "response";
+    }
 
 }

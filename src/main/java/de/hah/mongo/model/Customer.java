@@ -8,12 +8,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Customer {
 
 
-
-    private  String id;
-    private  String cxNo;
-    private  String city;
-    private  String name;
-
+    private String id;
+    private String cxNo;
+    private String city;
+    private String name;
 
 
     public Customer(String id, String cxNo, String city, String name) {
@@ -22,7 +20,8 @@ public class Customer {
         this.city = city;
         this.name = name;
     }
-    public Customer(){
+
+    public Customer() {
 
     }
 
@@ -57,7 +56,6 @@ public class Customer {
     public void setName(String name) {
         this.name = name;
     }
-
 
 
     @Override
