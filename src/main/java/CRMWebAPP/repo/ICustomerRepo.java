@@ -11,5 +11,7 @@ import java.util.List;
 public interface ICustomerRepo extends JpaRepository<Customer, Integer> {
     List<Customer> findByFirstNameContainingOrLastNameContaining(String firstName, String lastName);
 
-
+        List<Customer> findByLastName(String lastName);
+        List<Customer> findByLastNameContaining(String lastName);
+        List<Customer> findByFirstNameContaining(String firstName);
 }
