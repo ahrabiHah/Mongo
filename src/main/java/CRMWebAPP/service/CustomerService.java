@@ -66,5 +66,18 @@ public class CustomerService implements ICustomerService
 		}
 	}
 
+	@Override
+	public List<Customer> fetchCustomerInfo() {
+		return (List<Customer>) repo.findAll();
+	}
+
+	public Customer getCustomerByName(String name) {
+		List<Customer> customers = repo.findByFirstNameContaining(name);
+		if (customers.isEmpty()) {
+			customers = repo.findByLastNameContaining(name);
+		}
+		return customers.isEmpty() ? null : customers.get(0);
+
+	}
 
 }

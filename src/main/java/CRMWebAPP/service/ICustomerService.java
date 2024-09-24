@@ -29,5 +29,7 @@ public interface ICustomerService
 
     boolean updateCustomer(Customer cx);
 
+    List<Customer> fetchCustomerInfo();
+
 }
 
